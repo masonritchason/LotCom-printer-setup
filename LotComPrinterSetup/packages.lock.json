@@ -1,0 +1,49 @@
+{
+  "version": 1,
+  "dependencies": {
+    ".NETFramework,Version=v4.7.2": {
+      "WixSharp.wix.bin": {
+        "type": "Direct",
+        "requested": "[3.14.1, )",
+        "resolved": "3.14.1",
+        "contentHash": "34/tBGeWBtFfqaK/NrfVVx1ZnbTbA5sKQNGeog18XLpGvvqJG+Vgx/MV/OvjCrw++5RDw2W8p17xiuF6722ncw=="
+      },
+      "WixSharp_wix4": {
+        "type": "Direct",
+        "requested": "[2.7.1, )",
+        "resolved": "2.7.1",
+        "contentHash": "NRBtKaXvDhLEsu7bRIob4i0UPDIHLO4YsB3Ny26YAIG+gW9OTNVqtAt5ho8l4gTMZ9dhW/Jv51zyXQd/Gk1swg==",
+        "dependencies": {
+          "WixSharp_wix4.bin": "2.7.1"
+        }
+      },
+      "WixSharp_wix4.bin": {
+        "type": "Direct",
+        "requested": "[2.7.1, )",
+        "resolved": "2.7.1",
+        "contentHash": "wUk8cuMOmPr3xJ0o+VFYcqAjxB2k6hJeLy3480UryDJ2yhH8xyPQ0lF5W10vCU30toc2WyqhaurCCBPYtmLZGg==",
+        "dependencies": {
+          "WixToolset.Dtf.WindowsInstaller": "4.0.1",
+          "WixToolset.Mba.Core": "4.0.1"
+        }
+      },
+      "WixToolset.Dtf.WindowsInstaller": {
+        "type": "Transitive",
+        "resolved": "4.0.1",
+        "contentHash": "+mEb3koK5HWzVBElwJnVYwtv5hZtZ1PJZsx8BIKIEad2I4tBtOeDEwFXwG9mpCSJhJroLPS5bCVCtX4uiudt8g=="
+      },
+      "WixToolset.Mba.Core": {
+        "type": "Transitive",
+        "resolved": "4.0.1",
+        "contentHash": "bM8QaYQmjTOf837NMGlfyJUOaEUwom6YJXMZ/0dfjtBRsPtr9q0qGbEhF8tY+TwdNq/024PntCD2SiyxKAYeCg=="
+      }
+    },
+    ".NETFramework,Version=v4.7.2/win-x86": {
+      "WixToolset.Mba.Core": {
+        "type": "Transitive",
+        "resolved": "4.0.1",
+        "contentHash": "bM8QaYQmjTOf837NMGlfyJUOaEUwom6YJXMZ/0dfjtBRsPtr9q0qGbEhF8tY+TwdNq/024PntCD2SiyxKAYeCg=="
+      }
+    }
+  }
+}
