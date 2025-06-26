@@ -1,0 +1,88 @@
+name: Package Setup
+
+on:
+  push:
+    branches: develop
+
+permissions:
+  contents: write
+
+env:
+  DOTNET_VERSION: '8.0.314' # The .NET SDK version to use
+  NUGET_PACKAGES: ${{ github.workspace }}/.nuget/packages # action runner's installed NuGet packages
+
+jobs:
+
+  build:
+
+    name: build-windows
+    runs-on: windows-2022
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Get version number from commit
+      env:
+        GH_TOKEN: ${{ github.token }}
+      id: version-number
+      shell: pwsh
+      run: |
+        # retrieve the most recent commit via SHA
+        $sha = "${{ github.sha }}"
+        $commitMessage = gh api /repos/lotcom/lotcom-printer-setup/commits/$sha --jq ".commit.message"
+
+        # parse the version number out of the commit message
+        $pattern = '\d+\.\d+\.\d+\.?[\d]*'
+        $result = $commitMessage | Select-String -Pattern $pattern
+        $result = $result.Matches.Value
+        Write-Host "New release version number: $result" 
+
+        # set the output of this step to the VERSION_NUMBER environment var
+        echo "VERSION_NUMBER=$result" >> $env:GITHUB_ENV
+
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v4.3.0
+      with:
+        dotnet-version: ${{ env.DOTNET_VERSION }}
+        cache: true
+        cache-dependency-path: "./LotComPrinterSetup/packages.lock.json"
+
+    - name: Install dependencies
+      shell: pwsh
+      run: dotnet restore
+    
+    - name: Install required workloads
+      shell: pwsh
+      run: |
+        # install dotnet tools
+        dotnet tool install --global wix
+      
+    - name: Build
+      shell: pwsh
+      run: |
+        dotnet build
+        # copy out build files
+        New-Item -ItemType directory -Path "D:\a\Package" -ErrorAction SilentlyContinue
+        cd D:\a\LotCom-printer-setup\LotCom-printer-setup\LotComPrinterSetup\bin\Debug\net472
+        Copy-Item -Path "*" -Destination "D:\a\Package"
+
+    - name: Create release
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT_1 }}
+      id: release-tag
+      shell: pwsh
+      run: |
+        $tag = "$env:VERSION_NUMBER"
+        # create github release and set default notes
+        gh release create "$tag" --repo="$GITHUB_REPOSITORY" --title="$tag" --notes "Generated release"
+    
+    - name: Upload Setup Package to release
+      env:
+        GITHUB_TOKEN: ${{ secrets.PAT_1 }}
+      shell: pwsh
+      run: |
+        # use default tag for generated releases
+        $tag = "$env:VERSION_NUMBER"
+
+        # upload the setup package to the release
+        Compress-Archive -Path "D:\a\Package" -DestinationPath "D:\a\Package\Setup.zip"
+        gh release upload $tag "D:\a\Package\Setup.zip"
