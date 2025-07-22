@@ -102,8 +102,8 @@ namespace LotComPrinterSetup
                 (
                     new Id($"LotComPrinter_{VersionNumber}"),   // WiX# Id that "stamps" the XML files in the project MSI
                     "LotCoMPrinter.exe",    // targeted .exe file
-                    false,                  // show a close message
-                    false                   // do not prompt a reboot
+                    true,                   // show a close message?
+                    false                   // prompt a reboot?
                 )
                 {
                     Timeout = 15    // set the CloseApplication action's timeout to 15 seconds
