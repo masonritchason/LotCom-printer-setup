@@ -85,7 +85,7 @@ namespace LotComPrinterSetup
             {
                 return;
             }
-            Environment.CurrentDirectory = @"D:\a\LotCom-printer\LotCom-printer\LotComPrinter\bin\Release\net9.0-windows10.0.19041.0\win10-x64";  // setup project script home
+            Environment.CurrentDirectory = @"D:\a\LotCoM-printer\LotCoM-printer\LotCoMPrinter\bin\Release\net9.0-windows10.0.19041.0\win10-x64";  // setup project script home
             Environment.SetEnvironmentVariable("LATEST_RELEASE", VersionNumber);
             // generates a new GUID for the specific version installation
             Guid ProductId = GenerateProductId($"LotCom Printer {VersionNumber}");  // Do not change
