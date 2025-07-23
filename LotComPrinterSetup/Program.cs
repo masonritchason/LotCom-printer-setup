@@ -85,7 +85,7 @@ namespace LotComPrinterSetup
             {
                 return;
             }
-            Environment.CurrentDirectory = @"D:\a\LotCoM-printer\LotCoM-printer\LotCoMPrinter\bin\Release\net9.0-windows10.0.19041.0\win10-x64";  // setup project script home
+            Environment.CurrentDirectory = @"D:\a\LotCom-printer\LotCom-printer\LotComPrinter\bin\Release\net9.0-windows10.0.19041.0\win10-x64";  // setup project script home
             Environment.SetEnvironmentVariable("LATEST_RELEASE", VersionNumber);
             // generates a new GUID for the specific version installation
             Guid ProductId = GenerateProductId($"LotCom Printer {VersionNumber}");  // Do not change
@@ -101,7 +101,7 @@ namespace LotComPrinterSetup
                 new CloseApplication
                 (
                     new Id($"LotComPrinter_{VersionNumber}"),   // WiX# Id that "stamps" the XML files in the project MSI
-                    "LotCoMPrinter.exe",    // targeted .exe file
+                    "LotComPrinter.exe",    // targeted .exe file
                     true,                   // show a close message?
                     false                   // prompt a reboot?
                 )
@@ -118,10 +118,10 @@ namespace LotComPrinterSetup
             // LotComPrinterSetup.GUID = new Guid("99bcb1fa-e3c6-4ba7-b08e-1ea0ce5e4fda");
             // LotComPrinterSetup.LicenceFile = @".\License.rtf";
             LotComPrinterSetup.ControlPanelInfo.Comments = "LotCom Printer Application";
-            // LotComPrinterSetup.ControlPanelInfo.Readme = "https://github.com/LotCoM/LotCoM-printer/blob/stable/README.md";
-            // LotComPrinterSetup.ControlPanelInfo.HelpLink = "https://github.com/LotCoM/LotCoM-printer/blob/stable/README.md";
+            // LotComPrinterSetup.ControlPanelInfo.Readme = "https://github.com/LotCom/LotCom-printer/blob/stable/README.md";
+            // LotComPrinterSetup.ControlPanelInfo.HelpLink = "https://github.com/LotCom/LotCom-printer/blob/stable/README.md";
             LotComPrinterSetup.ControlPanelInfo.HelpTelephone = "(937) 260-9790";
-            LotComPrinterSetup.ControlPanelInfo.UrlInfoAbout = "https://github.com/LotCoM/LotCoM-printer/blob/stable/README.md";
+            LotComPrinterSetup.ControlPanelInfo.UrlInfoAbout = "https://github.com/LotCom/LotCom-printer/blob/stable/README.md";
             // LotComPrinterSetup.ControlPanelInfo.UrlUpdateInfo = "https://github.com/oleg-shilo/wixsharp/update";
             LotComPrinterSetup.ControlPanelInfo.ProductIcon = @"lotcom_logo.scale-100.png";
             LotComPrinterSetup.ControlPanelInfo.Contact = "YNA IT";
@@ -137,7 +137,7 @@ namespace LotComPrinterSetup
             LotComPrinterSetup.UI = WUI.WixUI_Minimal;
             LotComPrinterSetup.ResolveWildCards();
             // get the .exe file
-            WixSharp.File ExeFile = LotComPrinterSetup.AllFiles.Single(x => x.Name.EndsWith("LotCoMPrinter.exe"));
+            WixSharp.File ExeFile = LotComPrinterSetup.AllFiles.Single(x => x.Name.EndsWith("LotComPrinter.exe"));
             // set the .exe file shortcut wildcards
             ExeFile.Shortcuts = new[]
             {
