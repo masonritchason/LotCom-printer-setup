@@ -1,6 +1,6 @@
 # Setup Script for the LotCom Printer application
 
-[![Package Setup](https://github.com/LotCom/LotCom-printer-setup/actions/workflows/cicd.yml/badge.svg?branch=develop)](https://github.com/LotCom/LotCom-printer-setup/actions/workflows/cicd.yml)
+[![Package Setup](https://github.com/Yamada-North-America/LotCom-printer-setup/actions/workflows/cicd.yml/badge.svg?branch=develop)](https://github.com/Yamada-North-America/LotCom-printer-setup/actions/workflows/cicd.yml)
 
 Uses WiX and WiX-Sharp to create a custom MSI builder.
 

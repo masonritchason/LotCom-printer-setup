@@ -118,10 +118,10 @@ namespace LotComPrinterSetup
             // LotComPrinterSetup.GUID = new Guid("99bcb1fa-e3c6-4ba7-b08e-1ea0ce5e4fda");
             // LotComPrinterSetup.LicenceFile = @".\License.rtf";
             LotComPrinterSetup.ControlPanelInfo.Comments = "LotCom Printer Application";
-            // LotComPrinterSetup.ControlPanelInfo.Readme = "https://github.com/LotCom/LotCom-printer/blob/stable/README.md";
-            // LotComPrinterSetup.ControlPanelInfo.HelpLink = "https://github.com/LotCom/LotCom-printer/blob/stable/README.md";
+            // LotComPrinterSetup.ControlPanelInfo.Readme = "https://github.com/Yamada-North-America/LotCom-printer/blob/stable/README.md";
+            // LotComPrinterSetup.ControlPanelInfo.HelpLink = "https://github.com/Yamada-North-America/LotCom-printer/blob/stable/README.md";
             LotComPrinterSetup.ControlPanelInfo.HelpTelephone = "(937) 260-9790";
-            LotComPrinterSetup.ControlPanelInfo.UrlInfoAbout = "https://github.com/LotCom/LotCom-printer/blob/stable/README.md";
+            LotComPrinterSetup.ControlPanelInfo.UrlInfoAbout = "https://github.com/Yamada-North-America/LotCom-printer/blob/stable/README.md";
             // LotComPrinterSetup.ControlPanelInfo.UrlUpdateInfo = "https://github.com/oleg-shilo/wixsharp/update";
             LotComPrinterSetup.ControlPanelInfo.ProductIcon = @"lotcom_logo.scale-100.png";
             LotComPrinterSetup.ControlPanelInfo.Contact = "YNA IT";
